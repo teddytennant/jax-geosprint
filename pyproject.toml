@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jax-geosprint"
+version = "0.1.0"
+description = "JAX implementation of GeoSPRINT geometric step pruning for diffusion sampling schedules"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Teddy Tennant", email = "teddytennant@icloud.com" }]
+dependencies = [
+    "jax>=0.4.30",
+    "jaxlib>=0.4.30",
+    "numpy>=1.26",
+    "optax>=0.2.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["geosprint"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
